@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Bookings</title>
+</head>
+<body>
+    <h1>All Bookings</h1>
+    {% for booking in all_bookings %}
+        <div>
+            <p>Date: {{ booking.date }}, Time: {{ booking.time }}</p>
+            <p>Location: {{ booking.location }}</p>
+            <p>Player ID: {{ booking.player_id }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+<button onclick="window.location.href='{{ url_for('manager_main_page') }}'">Main Manager Page</button>
+
+</body>
+</html>

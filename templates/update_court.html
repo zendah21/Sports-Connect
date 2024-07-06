@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Court</title>
+</head>
+<body>
+    <h1>Update Court</h1>
+    <form action="{{ url_for('update_court', court_id=court.court_id) }}" method="post">
+        <label for="hourly_rate">Hourly Rate:</label>
+        <input type="text" id="hourly_rate" name="hourly_rate" value="{{ court.hourly_rate }}" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+<button onclick="window.location.href='{{ url_for('manager_main_page') }}'">Main Manager Page</button>
+
+</body>
+</html>

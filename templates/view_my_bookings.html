@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+</head>
+<body>
+    <h1>My Bookings</h1>
+    <table border="1">
+        <tr>
+            <th>Court ID</th>
+            <th>Start Time</th>
+            <th>Finish Time</th>
+        </tr>
+        {% for booking in my_bookings %}
+        <tr>
+            <td>{{ booking.court_id }}</td>
+            <td>{{ booking.start_time }}</td>
+            <td>{{ booking.finish_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('delete_booking') }}">Delete a Booking</a>
+ <button onclick="window.location.href='/main_player_page'">Main Player Page</button>
+</body>
+</html>

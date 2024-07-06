@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Booking</title>
+</head>
+<body>
+    <h1>Delete Booking</h1>
+    <form action="{{ url_for('delete_booking') }}" method="post">
+        <table border="1">
+            <tr>
+                <th>Select</th>
+                <th>Court ID</th>
+                <th>Start Time</th>
+                <th>Finish Time</th>
+            </tr>
+            {% for booking in bookings %}
+            <tr>
+                <td><input type="checkbox" name="booking_to_delete" value="{{ booking.player_id }}_{{ booking.court_id }}_{{ booking.start_time }}_{{ booking.finish_time }}"></td>
+                <td>{{ booking.court_id }}</td>
+                <td>{{ booking.start_time }}</td>
+                <td>{{ booking.finish_time }}</td>
+            </tr>
+            {% endfor %}
+        </table><br>
+        <input type="submit" value="Delete Selected Bookings">
+    </form>
+<button onclick="window.location.href='{{ url_for('manager_main_page') }}'">Main Manager Page</button>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+            <script>
+                // Play the welcome sound on error
+                var welcomeSound = new Audio("{{ url_for('static', filename='audio/explosion - sound effect.mp3') }}");
+                welcomeSound.play();
+            </script>
+        {% endif %}
+        <form action="{{ url_for('submit_login') }}" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="login_type">Login As:</label>
+            <select id="login_type" name="login_type">
+                <option value="player">Player</option>
+                <option value="manager">Manager</option>
+            </select>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

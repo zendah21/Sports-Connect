@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Main Page</title>
+</head>
+<body>
+    <h1>Welcome, Player!</h1>
+    <p>This is your main page.</p>
+    <!-- Buttons for player actions -->
+    <button onclick="window.location.href='/view_profile'">View Profile</button>
+    <button onclick="window.location.href='/view_my_posts'">View My Posts</button>
+    <button onclick="window.location.href='/create_new_post'">Create New Post</button>
+    <button onclick="window.location.href='/view_my_bookings'">View My Bookings</button>
+    <button onclick="window.location.href='/make_booking'">Make a Booking</button>
+    <button onclick="window.location.href='/view_all_posts'">View All Posts</button>
+  <button onclick="window.location.href='{{ url_for('logout') }}'">Logout</button>
+</body>
+</html>

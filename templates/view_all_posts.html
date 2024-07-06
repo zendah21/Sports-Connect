@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+</head>
+<body>
+    <h1>All Posts</h1>
+    {% for post in all_posts %}
+        <div>
+            <h3>{{ post.sport }}</h3>
+            <p>Date: {{ post.date }}, Time: {{ post.time }}</p>
+            <p>Location: {{ post.location }}</p>
+            <p>Description: {{ post.description }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+ <button onclick="window.location.href='/main_player_page'">Main Player Page</button>
+</body>
+</html>

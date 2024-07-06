@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Booking</title>
+</head>
+<body>
+    <h1>Make Booking</h1>
+    <form action="{{ url_for('make_booking') }}" method="post" id="bookingForm">
+        <label for="court_id">Court:</label>
+        <select id="court_id" name="court_id" required>
+            {% for court in courts %}
+                <option value="{{ court.court_id }}" data-hourly-rate="{{ court.hourly_rate }}">{{ court.location }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" readonly><br><br>
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+        <label for="start_time">Start Time:</label>
+        <input type="time" id="start_time" name="start_time" required><br><br>
+        <label for="finish_date">Finish Date:</label>
+        <input type="date" id="finish_date" name="finish_date" required>
+        <label for="finish_time">Finish Time:</label>
+        <input type="time" id="finish_time" name="finish_time" required><br><br>
+        <input type="submit" value="Submit">
+        <button onclick="window.location.href='/main_player_page'">Main Player Page</button>
+    </form>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            // Fetch the selected court's hourly rate
+            var courtSelect = document.getElementById('court_id');
+            var selectedOption = courtSelect.options[courtSelect.selectedIndex];
+            var hourlyRate = parseFloat(selectedOption.getAttribute('data-hourly-rate'));
+
+            // Parse the start and finish date and time strings and create Date objects
+            var startDateStr = document.getElementById('start_date').value;
+            var startTimeStr = document.getElementById('start_time').value;
+            var finishDateStr = document.getElementById('finish_date').value;
+            var finishTimeStr = document.getElementById('finish_time').value;
+            var startDate = new Date(startDateStr + 'T' + startTimeStr);
+            var finishDate = new Date(finishDateStr + 'T' + finishTimeStr);
+
+            // Check if the time range is valid
+            if (startDate >= finishDate) {
+                document.getElementById('price').value = 'Invalid time range';
+                // Prevent form submission
+                event.preventDefault();
+            } else {
+                // Calculate the duration in hours
+                var durationInHours = (finishDate - startDate) / 3600000;
+                // Calculate and display the total price
+                var totalPrice = durationInHours * hourlyRate;
+                document.getElementById('price').value = totalPrice.toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>

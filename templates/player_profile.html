@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Account Information</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+    <p>Name: {{ player_info['name'] }}</p>
+    <p>Surname: {{ player_info['surname'] }}</p>
+    <p>Email: {{ player_info['email'] }}</p>
+
+    <!-- Display update profile button if the current player's profile is being viewed -->
+    {% if current_player_id == player_info['player_id'] %}
+        <button onclick="window.location.href='/update_profile'">Update Information</button>
+    {% endif %}
+
+    <!-- Display friends list -->
+    <h2>Friends</h2>
+    {% if friends %}
+        <ul>
+            {% for friend in friends %}
+                <li>{{ friend.name }} {{ friend.surname }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No friends added yet.</p>
+    {% endif %}
+
+    <!-- Add a friend form -->
+    {% if current_player_id == player_info['player_id'] %}
+        <h3>Add a Friend</h3>
+        <form action="{{ url_for('view_account_information') }}" method="post">
+            <label for="friend_id">Friend ID:</label>
+            <input type="text" id="friend_id" name="friend_id" required>
+            <button type="submit">Add Friend</button>
+        </form>
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

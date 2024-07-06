@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Center Manager Main Page</title>
+</head>
+<body>
+    <h1>Welcome, Manager!</h1>
+    <p>This is your main page.</p>
+    <!-- Manager Actions -->
+    <ul>
+        <button onclick="window.location.href='{{ url_for('view_all_bookings') }}'">View Bookings</button>
+        <button onclick="window.location.href='{{ url_for('manage_courts') }}'">Manage Courts</button>
+    </ul>
+ <button onclick="window.location.href='{{ url_for('logout') }}'">Logout</button>
+</body>
+</html>

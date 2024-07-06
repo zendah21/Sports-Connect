@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Connect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Welcome to Sports Connect</h1>
+    </div>
+    <div class="button-container">
+        <button onclick="window.location.href='{{ url_for('Register') }}'">Register</button>
+        <button onclick="window.location.href='{{ url_for('Login') }}'">Login</button>
+    </div>
+</body>
+</html>

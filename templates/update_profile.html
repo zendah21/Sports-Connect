@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Account Information</title>
+</head>
+<body>
+    <h1>Update Account Information</h1>
+    <form action="/update_profile" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your new name" required>
+        </div>
+        <div>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" placeholder="Enter your new surname" required>
+        </div>
+        <div>
+            <input type="submit" value="Update Information">
+            <button onclick="window.location.href='/main_player_page'">Main Player Page</button>
+        </div>
+    </form>
+</body>
+</html>

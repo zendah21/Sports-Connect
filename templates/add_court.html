@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Court</title>
+</head>
+<body>
+    <h1>Add Court</h1>
+    <form action="{{ url_for('add_court') }}" method="post">
+        <label for="court_id">Court ID:</label>
+        <input type="text" id="court_id" name="court_id" required><br><br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+        <label for="hourly_rate">Hourly Rate:</label>
+        <input type="text" id="hourly_rate" name="hourly_rate" required><br><br>
+        <label for="court_surface">Court Surface:</label>
+        <input type="text" id="court_surface" name="court_surface" required><br><br>
+        <label for="size">Size:</label>
+        <input type="text" id="size" name="size" required><br><br>
+        <label>Court Type:</label><br>
+        <input type="radio" id="football" name="court_type" value="football">
+        <label for="football">Football</label><br>
+        <input type="radio" id="basketball" name="court_type" value="basketball">
+        <label for="basketball">Basketball</label><br>
+        <input type="radio" id="volleyball" name="court_type" value="volleyball">
+        <label for="volleyball">Volleyball</label><br><br>
+        <input type="submit" value="Add Court">
+    </form>
+<button onclick="window.location.href='{{ url_for('manager_main_page') }}'">Main Manager Page</button>
+
+</body>
+</html>
